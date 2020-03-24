@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.960
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces", "Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces.csproj", "{DB19877C-97B9-4AD8-B7A2-C6D63CBF7484}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Syneo.Sod.Dal.Gatekeeper", "Toci.Syneo.Sod.Dal.Gatekeeper\Toci.Syneo.Sod.Dal.Gatekeeper.csproj", "{4B2C7FB9-A9B5-47FB-A99E-04DAC17C396A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Syneo.DesignPatterns.Warsaw.Interfaces", "Toci.Syneo.DesignPatterns.Warsaw.Interfaces\Toci.Syneo.DesignPatterns.Warsaw.Interfaces.csproj", "{84C61569-B5BF-484C-920C-267E9474F68F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Syneo.DesignPatterns.Warsaw", "Toci.Syneo.DesignPatterns.Warsaw\Toci.Syneo.DesignPatterns.Warsaw.csproj", "{5551E0D2-E023-4018-B7CF-C460F4D40035}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Syneo.Common.Poland.Interfaces", "Toci.Syneo.Common.Poland.Interfaces\Toci.Syneo.Common.Poland.Interfaces.csproj", "{23DA4B06-8BE2-4565-BA11-5236A8A2F82A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toci.Syneo.Common.Poland", "Toci.Syneo.Common.Poland\Toci.Syneo.Common.Poland.csproj", "{4811CF17-CA87-44D3-856F-478974612EC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB19877C-97B9-4AD8-B7A2-C6D63CBF7484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB19877C-97B9-4AD8-B7A2-C6D63CBF7484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB19877C-97B9-4AD8-B7A2-C6D63CBF7484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB19877C-97B9-4AD8-B7A2-C6D63CBF7484}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B2C7FB9-A9B5-47FB-A99E-04DAC17C396A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B2C7FB9-A9B5-47FB-A99E-04DAC17C396A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B2C7FB9-A9B5-47FB-A99E-04DAC17C396A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B2C7FB9-A9B5-47FB-A99E-04DAC17C396A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84C61569-B5BF-484C-920C-267E9474F68F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84C61569-B5BF-484C-920C-267E9474F68F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84C61569-B5BF-484C-920C-267E9474F68F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84C61569-B5BF-484C-920C-267E9474F68F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5551E0D2-E023-4018-B7CF-C460F4D40035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5551E0D2-E023-4018-B7CF-C460F4D40035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5551E0D2-E023-4018-B7CF-C460F4D40035}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5551E0D2-E023-4018-B7CF-C460F4D40035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23DA4B06-8BE2-4565-BA11-5236A8A2F82A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23DA4B06-8BE2-4565-BA11-5236A8A2F82A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23DA4B06-8BE2-4565-BA11-5236A8A2F82A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23DA4B06-8BE2-4565-BA11-5236A8A2F82A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4811CF17-CA87-44D3-856F-478974612EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4811CF17-CA87-44D3-856F-478974612EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4811CF17-CA87-44D3-856F-478974612EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4811CF17-CA87-44D3-856F-478974612EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E7E428B-099C-4ADB-A4C9-36A6CFA1E003}
+	EndGlobalSection
+EndGlobal

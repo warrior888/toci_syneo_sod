@@ -30,3 +30,4 @@
 *.exe
 *.out
 *.app
+/Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces/.vs/Toci.Syneo.Sod/v15/Server/sqlite3

@@ -1,0 +1,1056 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SyneoSodModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DbColumnTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="text" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="FormsCommunicationHierarchy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdSodForms" Type="int" />
+          <Property Name="IdSodFormsChild" Type="int" />
+          <Property Name="IdSodDefinitionRoot" Type="int" />
+          <Property Name="IdSodDefinitionRootChild" Type="int" />
+          <Property Name="CustomLogic" Type="text" />
+        </EntityType>
+        <EntityType Name="Priviledges">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PriviledgeName" Type="text" />
+          <Property Name="Metadata" Type="text" />
+        </EntityType>
+        <EntityType Name="ProceedingDecisions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPriviledges" Type="int" />
+          <Property Name="IdSodUsersPriviledges" Type="int" />
+          <Property Name="IdSodForms" Type="int" />
+          <Property Name="Decision" Type="int" />
+        </EntityType>
+        <EntityType Name="SodDefinitionRoot">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="text" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="SodFormElementChoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ElementKind" Type="text" />
+          <Property Name="Metadata" Type="text" />
+        </EntityType>
+        <EntityType Name="SodForms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdSodDefinitionRoot" Type="int" />
+          <Property Name="IdSodFormElementChoice" Type="int" />
+          <Property Name="IdDbColumnTypes" Type="int" />
+          <Property Name="IdPriviledges" Type="int" />
+          <Property Name="IdPriviledgesSupervisor" Type="int" />
+          <Property Name="IdProceedingDecisions" Type="int" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="Metadata" Type="text" />
+          <Property Name="Value" Type="text" />
+        </EntityType>
+        <EntityType Name="SodTemplates">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="text" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="SodUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdSystemUsers" Type="int" />
+          <Property Name="IdUsersTypes" Type="int" />
+        </EntityType>
+        <EntityType Name="SodUsersPriviledges">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdSodUsers" Type="int" />
+          <Property Name="IdPriviledges" Type="int" />
+        </EntityType>
+        <EntityType Name="StoreOfDataPerForm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdSodForms" Type="int" />
+          <Property Name="Data" Type="text" />
+          <Property Name="Metadata" Type="text" />
+          <Property Name="Document" Type="text" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="SystemUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="text" />
+          <Property Name="Login" Type="text" />
+          <Property Name="Password" Type="text" />
+          <Property Name="Email" Type="text" />
+          <Property Name="Phone" Type="text" />
+        </EntityType>
+        <EntityType Name="UsersTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="text" />
+        </EntityType>
+        <Association Name="FK__FormsComm__IdSod__2A164134">
+          <End Role="SodForms" Type="Self.SodForms" Multiplicity="0..1" />
+          <End Role="FormsCommunicationHierarchy" Type="Self.FormsCommunicationHierarchy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodForms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormsCommunicationHierarchy">
+              <PropertyRef Name="IdSodForms" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FormsComm__IdSod__2B0A656D">
+          <End Role="SodForms" Type="Self.SodForms" Multiplicity="0..1" />
+          <End Role="FormsCommunicationHierarchy" Type="Self.FormsCommunicationHierarchy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodForms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormsCommunicationHierarchy">
+              <PropertyRef Name="IdSodFormsChild" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FormsComm__IdSod__2BFE89A6">
+          <End Role="SodDefinitionRoot" Type="Self.SodDefinitionRoot" Multiplicity="0..1" />
+          <End Role="FormsCommunicationHierarchy" Type="Self.FormsCommunicationHierarchy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodDefinitionRoot">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormsCommunicationHierarchy">
+              <PropertyRef Name="IdSodDefinitionRoot" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FormsComm__IdSod__2CF2ADDF">
+          <End Role="SodDefinitionRoot" Type="Self.SodDefinitionRoot" Multiplicity="0..1" />
+          <End Role="FormsCommunicationHierarchy" Type="Self.FormsCommunicationHierarchy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodDefinitionRoot">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormsCommunicationHierarchy">
+              <PropertyRef Name="IdSodDefinitionRootChild" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proceedin__IdPri__25518C17">
+          <End Role="Priviledges" Type="Self.Priviledges" Multiplicity="0..1" />
+          <End Role="ProceedingDecisions" Type="Self.ProceedingDecisions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priviledges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProceedingDecisions">
+              <PropertyRef Name="IdPriviledges" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proceedin__IdSod__2645B050">
+          <End Role="SodUsersPriviledges" Type="Self.SodUsersPriviledges" Multiplicity="0..1" />
+          <End Role="ProceedingDecisions" Type="Self.ProceedingDecisions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodUsersPriviledges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProceedingDecisions">
+              <PropertyRef Name="IdSodUsersPriviledges" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proceedin__IdSod__2739D489">
+          <End Role="SodForms" Type="Self.SodForms" Multiplicity="0..1" />
+          <End Role="ProceedingDecisions" Type="Self.ProceedingDecisions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodForms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProceedingDecisions">
+              <PropertyRef Name="IdSodForms" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SodForms__IdDbCo__208CD6FA">
+          <End Role="DbColumnTypes" Type="Self.DbColumnTypes" Multiplicity="0..1" />
+          <End Role="SodForms" Type="Self.SodForms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DbColumnTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodForms">
+              <PropertyRef Name="IdDbColumnTypes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SodForms__IdPriv__2180FB33">
+          <End Role="Priviledges" Type="Self.Priviledges" Multiplicity="0..1" />
+          <End Role="SodForms" Type="Self.SodForms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priviledges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodForms">
+              <PropertyRef Name="IdPriviledges" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SodForms__IdPriv__22751F6C">
+          <End Role="Priviledges" Type="Self.Priviledges" Multiplicity="0..1" />
+          <End Role="SodForms" Type="Self.SodForms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priviledges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodForms">
+              <PropertyRef Name="IdPriviledgesSupervisor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SodForms__IdSodD__1EA48E88">
+          <End Role="SodDefinitionRoot" Type="Self.SodDefinitionRoot" Multiplicity="0..1" />
+          <End Role="SodForms" Type="Self.SodForms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodDefinitionRoot">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodForms">
+              <PropertyRef Name="IdSodDefinitionRoot" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SodForms__IdSodF__1F98B2C1">
+          <End Role="SodFormElementChoice" Type="Self.SodFormElementChoice" Multiplicity="0..1" />
+          <End Role="SodForms" Type="Self.SodForms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodFormElementChoice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodForms">
+              <PropertyRef Name="IdSodFormElementChoice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SodUsers__IdSyst__17036CC0">
+          <End Role="SystemUsers" Type="Self.SystemUsers" Multiplicity="0..1" />
+          <End Role="SodUsers" Type="Self.SodUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodUsers">
+              <PropertyRef Name="IdSystemUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SodUsers__IdUser__17F790F9">
+          <End Role="UsersTypes" Type="Self.UsersTypes" Multiplicity="0..1" />
+          <End Role="SodUsers" Type="Self.SodUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsersTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodUsers">
+              <PropertyRef Name="IdUsersTypes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SodUsersP__IdPri__1BC821DD">
+          <End Role="Priviledges" Type="Self.Priviledges" Multiplicity="0..1" />
+          <End Role="SodUsersPriviledges" Type="Self.SodUsersPriviledges" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priviledges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodUsersPriviledges">
+              <PropertyRef Name="IdPriviledges" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SodUsersP__IdSod__1AD3FDA4">
+          <End Role="SodUsers" Type="Self.SodUsers" Multiplicity="0..1" />
+          <End Role="SodUsersPriviledges" Type="Self.SodUsersPriviledges" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodUsersPriviledges">
+              <PropertyRef Name="IdSodUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StoreOfDa__IdSod__2FCF1A8A">
+          <End Role="SodForms" Type="Self.SodForms" Multiplicity="0..1" />
+          <End Role="StoreOfDataPerForm" Type="Self.StoreOfDataPerForm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodForms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StoreOfDataPerForm">
+              <PropertyRef Name="IdSodForms" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SyneoSodModelStoreContainer">
+          <EntitySet Name="DbColumnTypes" EntityType="Self.DbColumnTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FormsCommunicationHierarchy" EntityType="Self.FormsCommunicationHierarchy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Priviledges" EntityType="Self.Priviledges" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProceedingDecisions" EntityType="Self.ProceedingDecisions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SodDefinitionRoot" EntityType="Self.SodDefinitionRoot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SodFormElementChoice" EntityType="Self.SodFormElementChoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SodForms" EntityType="Self.SodForms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SodTemplates" EntityType="Self.SodTemplates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SodUsers" EntityType="Self.SodUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SodUsersPriviledges" EntityType="Self.SodUsersPriviledges" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StoreOfDataPerForm" EntityType="Self.StoreOfDataPerForm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemUsers" EntityType="Self.SystemUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersTypes" EntityType="Self.UsersTypes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__FormsComm__IdSod__2A164134" Association="Self.FK__FormsComm__IdSod__2A164134">
+            <End Role="SodForms" EntitySet="SodForms" />
+            <End Role="FormsCommunicationHierarchy" EntitySet="FormsCommunicationHierarchy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FormsComm__IdSod__2B0A656D" Association="Self.FK__FormsComm__IdSod__2B0A656D">
+            <End Role="SodForms" EntitySet="SodForms" />
+            <End Role="FormsCommunicationHierarchy" EntitySet="FormsCommunicationHierarchy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FormsComm__IdSod__2BFE89A6" Association="Self.FK__FormsComm__IdSod__2BFE89A6">
+            <End Role="SodDefinitionRoot" EntitySet="SodDefinitionRoot" />
+            <End Role="FormsCommunicationHierarchy" EntitySet="FormsCommunicationHierarchy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FormsComm__IdSod__2CF2ADDF" Association="Self.FK__FormsComm__IdSod__2CF2ADDF">
+            <End Role="SodDefinitionRoot" EntitySet="SodDefinitionRoot" />
+            <End Role="FormsCommunicationHierarchy" EntitySet="FormsCommunicationHierarchy" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proceedin__IdPri__25518C17" Association="Self.FK__Proceedin__IdPri__25518C17">
+            <End Role="Priviledges" EntitySet="Priviledges" />
+            <End Role="ProceedingDecisions" EntitySet="ProceedingDecisions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proceedin__IdSod__2645B050" Association="Self.FK__Proceedin__IdSod__2645B050">
+            <End Role="SodUsersPriviledges" EntitySet="SodUsersPriviledges" />
+            <End Role="ProceedingDecisions" EntitySet="ProceedingDecisions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proceedin__IdSod__2739D489" Association="Self.FK__Proceedin__IdSod__2739D489">
+            <End Role="SodForms" EntitySet="SodForms" />
+            <End Role="ProceedingDecisions" EntitySet="ProceedingDecisions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SodForms__IdDbCo__208CD6FA" Association="Self.FK__SodForms__IdDbCo__208CD6FA">
+            <End Role="DbColumnTypes" EntitySet="DbColumnTypes" />
+            <End Role="SodForms" EntitySet="SodForms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SodForms__IdPriv__2180FB33" Association="Self.FK__SodForms__IdPriv__2180FB33">
+            <End Role="Priviledges" EntitySet="Priviledges" />
+            <End Role="SodForms" EntitySet="SodForms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SodForms__IdPriv__22751F6C" Association="Self.FK__SodForms__IdPriv__22751F6C">
+            <End Role="Priviledges" EntitySet="Priviledges" />
+            <End Role="SodForms" EntitySet="SodForms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SodForms__IdSodD__1EA48E88" Association="Self.FK__SodForms__IdSodD__1EA48E88">
+            <End Role="SodDefinitionRoot" EntitySet="SodDefinitionRoot" />
+            <End Role="SodForms" EntitySet="SodForms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SodForms__IdSodF__1F98B2C1" Association="Self.FK__SodForms__IdSodF__1F98B2C1">
+            <End Role="SodFormElementChoice" EntitySet="SodFormElementChoice" />
+            <End Role="SodForms" EntitySet="SodForms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SodUsers__IdSyst__17036CC0" Association="Self.FK__SodUsers__IdSyst__17036CC0">
+            <End Role="SystemUsers" EntitySet="SystemUsers" />
+            <End Role="SodUsers" EntitySet="SodUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SodUsers__IdUser__17F790F9" Association="Self.FK__SodUsers__IdUser__17F790F9">
+            <End Role="UsersTypes" EntitySet="UsersTypes" />
+            <End Role="SodUsers" EntitySet="SodUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SodUsersP__IdPri__1BC821DD" Association="Self.FK__SodUsersP__IdPri__1BC821DD">
+            <End Role="Priviledges" EntitySet="Priviledges" />
+            <End Role="SodUsersPriviledges" EntitySet="SodUsersPriviledges" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SodUsersP__IdSod__1AD3FDA4" Association="Self.FK__SodUsersP__IdSod__1AD3FDA4">
+            <End Role="SodUsers" EntitySet="SodUsers" />
+            <End Role="SodUsersPriviledges" EntitySet="SodUsersPriviledges" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StoreOfDa__IdSod__2FCF1A8A" Association="Self.FK__StoreOfDa__IdSod__2FCF1A8A">
+            <End Role="SodForms" EntitySet="SodForms" />
+            <End Role="StoreOfDataPerForm" EntitySet="StoreOfDataPerForm" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SyneoSodModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DbColumnType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SodForms" Relationship="Self.FK__SodForms__IdDbCo__208CD6FA" FromRole="DbColumnTypes" ToRole="SodForms" />
+        </EntityType>
+        <EntityType Name="FormsCommunicationHierarchy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSodForms" Type="Int32" />
+          <Property Name="IdSodFormsChild" Type="Int32" />
+          <Property Name="IdSodDefinitionRoot" Type="Int32" />
+          <Property Name="IdSodDefinitionRootChild" Type="Int32" />
+          <Property Name="CustomLogic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SodForm" Relationship="Self.FK__FormsComm__IdSod__2A164134" FromRole="FormsCommunicationHierarchy" ToRole="SodForms" />
+          <NavigationProperty Name="SodForm1" Relationship="Self.FK__FormsComm__IdSod__2B0A656D" FromRole="FormsCommunicationHierarchy" ToRole="SodForms" />
+          <NavigationProperty Name="SodDefinitionRoot" Relationship="Self.FK__FormsComm__IdSod__2BFE89A6" FromRole="FormsCommunicationHierarchy" ToRole="SodDefinitionRoot" />
+          <NavigationProperty Name="SodDefinitionRoot1" Relationship="Self.FK__FormsComm__IdSod__2CF2ADDF" FromRole="FormsCommunicationHierarchy" ToRole="SodDefinitionRoot" />
+        </EntityType>
+        <EntityType Name="Priviledge">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PriviledgeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Metadata" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ProceedingDecisions" Relationship="Self.FK__Proceedin__IdPri__25518C17" FromRole="Priviledges" ToRole="ProceedingDecisions" />
+          <NavigationProperty Name="SodForms" Relationship="Self.FK__SodForms__IdPriv__2180FB33" FromRole="Priviledges" ToRole="SodForms" />
+          <NavigationProperty Name="SodForms1" Relationship="Self.FK__SodForms__IdPriv__22751F6C" FromRole="Priviledges" ToRole="SodForms" />
+          <NavigationProperty Name="SodUsersPriviledges" Relationship="Self.FK__SodUsersP__IdPri__1BC821DD" FromRole="Priviledges" ToRole="SodUsersPriviledges" />
+        </EntityType>
+        <EntityType Name="ProceedingDecision">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPriviledges" Type="Int32" />
+          <Property Name="IdSodUsersPriviledges" Type="Int32" />
+          <Property Name="IdSodForms" Type="Int32" />
+          <Property Name="Decision" Type="Int32" />
+          <NavigationProperty Name="Priviledge" Relationship="Self.FK__Proceedin__IdPri__25518C17" FromRole="ProceedingDecisions" ToRole="Priviledges" />
+          <NavigationProperty Name="SodUsersPriviledge" Relationship="Self.FK__Proceedin__IdSod__2645B050" FromRole="ProceedingDecisions" ToRole="SodUsersPriviledges" />
+          <NavigationProperty Name="SodForm" Relationship="Self.FK__Proceedin__IdSod__2739D489" FromRole="ProceedingDecisions" ToRole="SodForms" />
+        </EntityType>
+        <EntityType Name="SodDefinitionRoot">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FormsCommunicationHierarchies" Relationship="Self.FK__FormsComm__IdSod__2BFE89A6" FromRole="SodDefinitionRoot" ToRole="FormsCommunicationHierarchy" />
+          <NavigationProperty Name="FormsCommunicationHierarchies1" Relationship="Self.FK__FormsComm__IdSod__2CF2ADDF" FromRole="SodDefinitionRoot" ToRole="FormsCommunicationHierarchy" />
+          <NavigationProperty Name="SodForms" Relationship="Self.FK__SodForms__IdSodD__1EA48E88" FromRole="SodDefinitionRoot" ToRole="SodForms" />
+        </EntityType>
+        <EntityType Name="SodFormElementChoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ElementKind" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Metadata" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SodForms" Relationship="Self.FK__SodForms__IdSodF__1F98B2C1" FromRole="SodFormElementChoice" ToRole="SodForms" />
+        </EntityType>
+        <EntityType Name="SodForm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSodDefinitionRoot" Type="Int32" />
+          <Property Name="IdSodFormElementChoice" Type="Int32" />
+          <Property Name="IdDbColumnTypes" Type="Int32" />
+          <Property Name="IdPriviledges" Type="Int32" />
+          <Property Name="IdPriviledgesSupervisor" Type="Int32" />
+          <Property Name="IdProceedingDecisions" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Metadata" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DbColumnType" Relationship="Self.FK__SodForms__IdDbCo__208CD6FA" FromRole="SodForms" ToRole="DbColumnTypes" />
+          <NavigationProperty Name="FormsCommunicationHierarchies" Relationship="Self.FK__FormsComm__IdSod__2A164134" FromRole="SodForms" ToRole="FormsCommunicationHierarchy" />
+          <NavigationProperty Name="FormsCommunicationHierarchies1" Relationship="Self.FK__FormsComm__IdSod__2B0A656D" FromRole="SodForms" ToRole="FormsCommunicationHierarchy" />
+          <NavigationProperty Name="Priviledge" Relationship="Self.FK__SodForms__IdPriv__2180FB33" FromRole="SodForms" ToRole="Priviledges" />
+          <NavigationProperty Name="Priviledge1" Relationship="Self.FK__SodForms__IdPriv__22751F6C" FromRole="SodForms" ToRole="Priviledges" />
+          <NavigationProperty Name="ProceedingDecisions" Relationship="Self.FK__Proceedin__IdSod__2739D489" FromRole="SodForms" ToRole="ProceedingDecisions" />
+          <NavigationProperty Name="SodDefinitionRoot" Relationship="Self.FK__SodForms__IdSodD__1EA48E88" FromRole="SodForms" ToRole="SodDefinitionRoot" />
+          <NavigationProperty Name="SodFormElementChoice" Relationship="Self.FK__SodForms__IdSodF__1F98B2C1" FromRole="SodForms" ToRole="SodFormElementChoice" />
+          <NavigationProperty Name="StoreOfDataPerForms" Relationship="Self.FK__StoreOfDa__IdSod__2FCF1A8A" FromRole="SodForms" ToRole="StoreOfDataPerForm" />
+        </EntityType>
+        <EntityType Name="SodTemplate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SodUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSystemUsers" Type="Int32" />
+          <Property Name="IdUsersTypes" Type="Int32" />
+          <NavigationProperty Name="SystemUser" Relationship="Self.FK__SodUsers__IdSyst__17036CC0" FromRole="SodUsers" ToRole="SystemUsers" />
+          <NavigationProperty Name="UsersType" Relationship="Self.FK__SodUsers__IdUser__17F790F9" FromRole="SodUsers" ToRole="UsersTypes" />
+          <NavigationProperty Name="SodUsersPriviledges" Relationship="Self.FK__SodUsersP__IdSod__1AD3FDA4" FromRole="SodUsers" ToRole="SodUsersPriviledges" />
+        </EntityType>
+        <EntityType Name="SodUsersPriviledge">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSodUsers" Type="Int32" />
+          <Property Name="IdPriviledges" Type="Int32" />
+          <NavigationProperty Name="Priviledge" Relationship="Self.FK__SodUsersP__IdPri__1BC821DD" FromRole="SodUsersPriviledges" ToRole="Priviledges" />
+          <NavigationProperty Name="ProceedingDecisions" Relationship="Self.FK__Proceedin__IdSod__2645B050" FromRole="SodUsersPriviledges" ToRole="ProceedingDecisions" />
+          <NavigationProperty Name="SodUser" Relationship="Self.FK__SodUsersP__IdSod__1AD3FDA4" FromRole="SodUsersPriviledges" ToRole="SodUsers" />
+        </EntityType>
+        <EntityType Name="StoreOfDataPerForm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdSodForms" Type="Int32" />
+          <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Metadata" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Document" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SodForm" Relationship="Self.FK__StoreOfDa__IdSod__2FCF1A8A" FromRole="StoreOfDataPerForm" ToRole="SodForms" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SystemUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SodUsers" Relationship="Self.FK__SodUsers__IdSyst__17036CC0" FromRole="SystemUsers" ToRole="SodUsers" />
+        </EntityType>
+        <EntityType Name="UsersType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SodUsers" Relationship="Self.FK__SodUsers__IdUser__17F790F9" FromRole="UsersTypes" ToRole="SodUsers" />
+        </EntityType>
+        <Association Name="FK__SodForms__IdDbCo__208CD6FA">
+          <End Role="DbColumnTypes" Type="Self.DbColumnType" Multiplicity="0..1" />
+          <End Role="SodForms" Type="Self.SodForm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DbColumnTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodForms">
+              <PropertyRef Name="IdDbColumnTypes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FormsComm__IdSod__2A164134">
+          <End Role="SodForms" Type="Self.SodForm" Multiplicity="0..1" />
+          <End Role="FormsCommunicationHierarchy" Type="Self.FormsCommunicationHierarchy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodForms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormsCommunicationHierarchy">
+              <PropertyRef Name="IdSodForms" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FormsComm__IdSod__2B0A656D">
+          <End Role="SodForms" Type="Self.SodForm" Multiplicity="0..1" />
+          <End Role="FormsCommunicationHierarchy" Type="Self.FormsCommunicationHierarchy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodForms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormsCommunicationHierarchy">
+              <PropertyRef Name="IdSodFormsChild" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FormsComm__IdSod__2BFE89A6">
+          <End Role="SodDefinitionRoot" Type="Self.SodDefinitionRoot" Multiplicity="0..1" />
+          <End Role="FormsCommunicationHierarchy" Type="Self.FormsCommunicationHierarchy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodDefinitionRoot">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormsCommunicationHierarchy">
+              <PropertyRef Name="IdSodDefinitionRoot" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FormsComm__IdSod__2CF2ADDF">
+          <End Role="SodDefinitionRoot" Type="Self.SodDefinitionRoot" Multiplicity="0..1" />
+          <End Role="FormsCommunicationHierarchy" Type="Self.FormsCommunicationHierarchy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodDefinitionRoot">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FormsCommunicationHierarchy">
+              <PropertyRef Name="IdSodDefinitionRootChild" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proceedin__IdPri__25518C17">
+          <End Role="Priviledges" Type="Self.Priviledge" Multiplicity="0..1" />
+          <End Role="ProceedingDecisions" Type="Self.ProceedingDecision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priviledges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProceedingDecisions">
+              <PropertyRef Name="IdPriviledges" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SodForms__IdPriv__2180FB33">
+          <End Role="Priviledges" Type="Self.Priviledge" Multiplicity="0..1" />
+          <End Role="SodForms" Type="Self.SodForm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priviledges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodForms">
+              <PropertyRef Name="IdPriviledges" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SodForms__IdPriv__22751F6C">
+          <End Role="Priviledges" Type="Self.Priviledge" Multiplicity="0..1" />
+          <End Role="SodForms" Type="Self.SodForm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priviledges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodForms">
+              <PropertyRef Name="IdPriviledgesSupervisor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SodUsersP__IdPri__1BC821DD">
+          <End Role="Priviledges" Type="Self.Priviledge" Multiplicity="0..1" />
+          <End Role="SodUsersPriviledges" Type="Self.SodUsersPriviledge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priviledges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodUsersPriviledges">
+              <PropertyRef Name="IdPriviledges" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proceedin__IdSod__2645B050">
+          <End Role="SodUsersPriviledges" Type="Self.SodUsersPriviledge" Multiplicity="0..1" />
+          <End Role="ProceedingDecisions" Type="Self.ProceedingDecision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodUsersPriviledges">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProceedingDecisions">
+              <PropertyRef Name="IdSodUsersPriviledges" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proceedin__IdSod__2739D489">
+          <End Role="SodForms" Type="Self.SodForm" Multiplicity="0..1" />
+          <End Role="ProceedingDecisions" Type="Self.ProceedingDecision" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodForms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProceedingDecisions">
+              <PropertyRef Name="IdSodForms" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SodForms__IdSodD__1EA48E88">
+          <End Role="SodDefinitionRoot" Type="Self.SodDefinitionRoot" Multiplicity="0..1" />
+          <End Role="SodForms" Type="Self.SodForm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodDefinitionRoot">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodForms">
+              <PropertyRef Name="IdSodDefinitionRoot" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SodForms__IdSodF__1F98B2C1">
+          <End Role="SodFormElementChoice" Type="Self.SodFormElementChoice" Multiplicity="0..1" />
+          <End Role="SodForms" Type="Self.SodForm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodFormElementChoice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodForms">
+              <PropertyRef Name="IdSodFormElementChoice" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StoreOfDa__IdSod__2FCF1A8A">
+          <End Role="SodForms" Type="Self.SodForm" Multiplicity="0..1" />
+          <End Role="StoreOfDataPerForm" Type="Self.StoreOfDataPerForm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodForms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StoreOfDataPerForm">
+              <PropertyRef Name="IdSodForms" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SodUsers__IdSyst__17036CC0">
+          <End Role="SystemUsers" Type="Self.SystemUser" Multiplicity="0..1" />
+          <End Role="SodUsers" Type="Self.SodUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SystemUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodUsers">
+              <PropertyRef Name="IdSystemUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SodUsers__IdUser__17F790F9">
+          <End Role="UsersTypes" Type="Self.UsersType" Multiplicity="0..1" />
+          <End Role="SodUsers" Type="Self.SodUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UsersTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodUsers">
+              <PropertyRef Name="IdUsersTypes" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SodUsersP__IdSod__1AD3FDA4">
+          <End Role="SodUsers" Type="Self.SodUser" Multiplicity="0..1" />
+          <End Role="SodUsersPriviledges" Type="Self.SodUsersPriviledge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SodUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SodUsersPriviledges">
+              <PropertyRef Name="IdSodUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SyneoSodEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DbColumnTypes" EntityType="Self.DbColumnType" />
+          <EntitySet Name="FormsCommunicationHierarchies" EntityType="Self.FormsCommunicationHierarchy" />
+          <EntitySet Name="Priviledges" EntityType="Self.Priviledge" />
+          <EntitySet Name="ProceedingDecisions" EntityType="Self.ProceedingDecision" />
+          <EntitySet Name="SodDefinitionRoots" EntityType="Self.SodDefinitionRoot" />
+          <EntitySet Name="SodFormElementChoices" EntityType="Self.SodFormElementChoice" />
+          <EntitySet Name="SodForms" EntityType="Self.SodForm" />
+          <EntitySet Name="SodTemplates" EntityType="Self.SodTemplate" />
+          <EntitySet Name="SodUsers" EntityType="Self.SodUser" />
+          <EntitySet Name="SodUsersPriviledges" EntityType="Self.SodUsersPriviledge" />
+          <EntitySet Name="StoreOfDataPerForms" EntityType="Self.StoreOfDataPerForm" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="SystemUsers" EntityType="Self.SystemUser" />
+          <EntitySet Name="UsersTypes" EntityType="Self.UsersType" />
+          <AssociationSet Name="FK__SodForms__IdDbCo__208CD6FA" Association="Self.FK__SodForms__IdDbCo__208CD6FA">
+            <End Role="DbColumnTypes" EntitySet="DbColumnTypes" />
+            <End Role="SodForms" EntitySet="SodForms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FormsComm__IdSod__2A164134" Association="Self.FK__FormsComm__IdSod__2A164134">
+            <End Role="SodForms" EntitySet="SodForms" />
+            <End Role="FormsCommunicationHierarchy" EntitySet="FormsCommunicationHierarchies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FormsComm__IdSod__2B0A656D" Association="Self.FK__FormsComm__IdSod__2B0A656D">
+            <End Role="SodForms" EntitySet="SodForms" />
+            <End Role="FormsCommunicationHierarchy" EntitySet="FormsCommunicationHierarchies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FormsComm__IdSod__2BFE89A6" Association="Self.FK__FormsComm__IdSod__2BFE89A6">
+            <End Role="SodDefinitionRoot" EntitySet="SodDefinitionRoots" />
+            <End Role="FormsCommunicationHierarchy" EntitySet="FormsCommunicationHierarchies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FormsComm__IdSod__2CF2ADDF" Association="Self.FK__FormsComm__IdSod__2CF2ADDF">
+            <End Role="SodDefinitionRoot" EntitySet="SodDefinitionRoots" />
+            <End Role="FormsCommunicationHierarchy" EntitySet="FormsCommunicationHierarchies" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proceedin__IdPri__25518C17" Association="Self.FK__Proceedin__IdPri__25518C17">
+            <End Role="Priviledges" EntitySet="Priviledges" />
+            <End Role="ProceedingDecisions" EntitySet="ProceedingDecisions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SodForms__IdPriv__2180FB33" Association="Self.FK__SodForms__IdPriv__2180FB33">
+            <End Role="Priviledges" EntitySet="Priviledges" />
+            <End Role="SodForms" EntitySet="SodForms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SodForms__IdPriv__22751F6C" Association="Self.FK__SodForms__IdPriv__22751F6C">
+            <End Role="Priviledges" EntitySet="Priviledges" />
+            <End Role="SodForms" EntitySet="SodForms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SodUsersP__IdPri__1BC821DD" Association="Self.FK__SodUsersP__IdPri__1BC821DD">
+            <End Role="Priviledges" EntitySet="Priviledges" />
+            <End Role="SodUsersPriviledges" EntitySet="SodUsersPriviledges" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proceedin__IdSod__2645B050" Association="Self.FK__Proceedin__IdSod__2645B050">
+            <End Role="SodUsersPriviledges" EntitySet="SodUsersPriviledges" />
+            <End Role="ProceedingDecisions" EntitySet="ProceedingDecisions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proceedin__IdSod__2739D489" Association="Self.FK__Proceedin__IdSod__2739D489">
+            <End Role="SodForms" EntitySet="SodForms" />
+            <End Role="ProceedingDecisions" EntitySet="ProceedingDecisions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SodForms__IdSodD__1EA48E88" Association="Self.FK__SodForms__IdSodD__1EA48E88">
+            <End Role="SodDefinitionRoot" EntitySet="SodDefinitionRoots" />
+            <End Role="SodForms" EntitySet="SodForms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SodForms__IdSodF__1F98B2C1" Association="Self.FK__SodForms__IdSodF__1F98B2C1">
+            <End Role="SodFormElementChoice" EntitySet="SodFormElementChoices" />
+            <End Role="SodForms" EntitySet="SodForms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StoreOfDa__IdSod__2FCF1A8A" Association="Self.FK__StoreOfDa__IdSod__2FCF1A8A">
+            <End Role="SodForms" EntitySet="SodForms" />
+            <End Role="StoreOfDataPerForm" EntitySet="StoreOfDataPerForms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SodUsers__IdSyst__17036CC0" Association="Self.FK__SodUsers__IdSyst__17036CC0">
+            <End Role="SystemUsers" EntitySet="SystemUsers" />
+            <End Role="SodUsers" EntitySet="SodUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SodUsers__IdUser__17F790F9" Association="Self.FK__SodUsers__IdUser__17F790F9">
+            <End Role="UsersTypes" EntitySet="UsersTypes" />
+            <End Role="SodUsers" EntitySet="SodUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SodUsersP__IdSod__1AD3FDA4" Association="Self.FK__SodUsersP__IdSod__1AD3FDA4">
+            <End Role="SodUsers" EntitySet="SodUsers" />
+            <End Role="SodUsersPriviledges" EntitySet="SodUsersPriviledges" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SyneoSodModelStoreContainer" CdmEntityContainer="SyneoSodEntities">
+          <EntitySetMapping Name="DbColumnTypes">
+            <EntityTypeMapping TypeName="SyneoSodModel.DbColumnType">
+              <MappingFragment StoreEntitySet="DbColumnTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FormsCommunicationHierarchies">
+            <EntityTypeMapping TypeName="SyneoSodModel.FormsCommunicationHierarchy">
+              <MappingFragment StoreEntitySet="FormsCommunicationHierarchy">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdSodForms" ColumnName="IdSodForms" />
+                <ScalarProperty Name="IdSodFormsChild" ColumnName="IdSodFormsChild" />
+                <ScalarProperty Name="IdSodDefinitionRoot" ColumnName="IdSodDefinitionRoot" />
+                <ScalarProperty Name="IdSodDefinitionRootChild" ColumnName="IdSodDefinitionRootChild" />
+                <ScalarProperty Name="CustomLogic" ColumnName="CustomLogic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Priviledges">
+            <EntityTypeMapping TypeName="SyneoSodModel.Priviledge">
+              <MappingFragment StoreEntitySet="Priviledges">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PriviledgeName" ColumnName="PriviledgeName" />
+                <ScalarProperty Name="Metadata" ColumnName="Metadata" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProceedingDecisions">
+            <EntityTypeMapping TypeName="SyneoSodModel.ProceedingDecision">
+              <MappingFragment StoreEntitySet="ProceedingDecisions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdPriviledges" ColumnName="IdPriviledges" />
+                <ScalarProperty Name="IdSodUsersPriviledges" ColumnName="IdSodUsersPriviledges" />
+                <ScalarProperty Name="IdSodForms" ColumnName="IdSodForms" />
+                <ScalarProperty Name="Decision" ColumnName="Decision" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SodDefinitionRoots">
+            <EntityTypeMapping TypeName="SyneoSodModel.SodDefinitionRoot">
+              <MappingFragment StoreEntitySet="SodDefinitionRoot">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SodFormElementChoices">
+            <EntityTypeMapping TypeName="SyneoSodModel.SodFormElementChoice">
+              <MappingFragment StoreEntitySet="SodFormElementChoice">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ElementKind" ColumnName="ElementKind" />
+                <ScalarProperty Name="Metadata" ColumnName="Metadata" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SodForms">
+            <EntityTypeMapping TypeName="SyneoSodModel.SodForm">
+              <MappingFragment StoreEntitySet="SodForms">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdSodDefinitionRoot" ColumnName="IdSodDefinitionRoot" />
+                <ScalarProperty Name="IdSodFormElementChoice" ColumnName="IdSodFormElementChoice" />
+                <ScalarProperty Name="IdDbColumnTypes" ColumnName="IdDbColumnTypes" />
+                <ScalarProperty Name="IdPriviledges" ColumnName="IdPriviledges" />
+                <ScalarProperty Name="IdPriviledgesSupervisor" ColumnName="IdPriviledgesSupervisor" />
+                <ScalarProperty Name="IdProceedingDecisions" ColumnName="IdProceedingDecisions" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Metadata" ColumnName="Metadata" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SodTemplates">
+            <EntityTypeMapping TypeName="SyneoSodModel.SodTemplate">
+              <MappingFragment StoreEntitySet="SodTemplates">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SodUsers">
+            <EntityTypeMapping TypeName="SyneoSodModel.SodUser">
+              <MappingFragment StoreEntitySet="SodUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdSystemUsers" ColumnName="IdSystemUsers" />
+                <ScalarProperty Name="IdUsersTypes" ColumnName="IdUsersTypes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SodUsersPriviledges">
+            <EntityTypeMapping TypeName="SyneoSodModel.SodUsersPriviledge">
+              <MappingFragment StoreEntitySet="SodUsersPriviledges">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdSodUsers" ColumnName="IdSodUsers" />
+                <ScalarProperty Name="IdPriviledges" ColumnName="IdPriviledges" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StoreOfDataPerForms">
+            <EntityTypeMapping TypeName="SyneoSodModel.StoreOfDataPerForm">
+              <MappingFragment StoreEntitySet="StoreOfDataPerForm">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdSodForms" ColumnName="IdSodForms" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Metadata" ColumnName="Metadata" />
+                <ScalarProperty Name="Document" ColumnName="Document" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SyneoSodModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemUsers">
+            <EntityTypeMapping TypeName="SyneoSodModel.SystemUser">
+              <MappingFragment StoreEntitySet="SystemUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersTypes">
+            <EntityTypeMapping TypeName="SyneoSodModel.UsersType">
+              <MappingFragment StoreEntitySet="UsersTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

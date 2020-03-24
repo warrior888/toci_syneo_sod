@@ -1,0 +1,5 @@
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.DesignPatterns.Warsaw.Interfaces\bin\Debug\Toci.Syneo.DesignPatterns.Warsaw.Interfaces.dll
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.DesignPatterns.Warsaw.Interfaces\bin\Debug\Toci.Syneo.DesignPatterns.Warsaw.Interfaces.pdb
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.DesignPatterns.Warsaw.Interfaces\obj\Debug\Toci.Syneo.DesignPatterns.Warsaw.Interfaces.csproj.CoreCompileInputs.cache
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.DesignPatterns.Warsaw.Interfaces\obj\Debug\Toci.Syneo.DesignPatterns.Warsaw.Interfaces.dll
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.DesignPatterns.Warsaw.Interfaces\obj\Debug\Toci.Syneo.DesignPatterns.Warsaw.Interfaces.pdb

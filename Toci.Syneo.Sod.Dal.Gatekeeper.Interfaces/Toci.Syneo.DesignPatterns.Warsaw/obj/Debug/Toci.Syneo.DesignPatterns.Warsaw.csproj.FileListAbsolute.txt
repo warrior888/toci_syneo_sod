@@ -1,0 +1,9 @@
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.DesignPatterns.Warsaw\bin\Debug\Toci.Syneo.DesignPatterns.Warsaw.dll
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.DesignPatterns.Warsaw\bin\Debug\Toci.Syneo.DesignPatterns.Warsaw.pdb
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.DesignPatterns.Warsaw\bin\Debug\Toci.Syneo.DesignPatterns.Warsaw.Interfaces.dll
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.DesignPatterns.Warsaw\bin\Debug\Toci.Syneo.DesignPatterns.Warsaw.Interfaces.pdb
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.DesignPatterns.Warsaw\obj\Debug\Toci.Syneo.DesignPatterns.Warsaw.csprojAssemblyReference.cache
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.DesignPatterns.Warsaw\obj\Debug\Toci.Syneo.DesignPatterns.Warsaw.csproj.CoreCompileInputs.cache
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.DesignPatterns.Warsaw\obj\Debug\Toci.Syneo.DesignPatterns.Warsaw.csproj.CopyComplete
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.DesignPatterns.Warsaw\obj\Debug\Toci.Syneo.DesignPatterns.Warsaw.dll
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.DesignPatterns.Warsaw\obj\Debug\Toci.Syneo.DesignPatterns.Warsaw.pdb

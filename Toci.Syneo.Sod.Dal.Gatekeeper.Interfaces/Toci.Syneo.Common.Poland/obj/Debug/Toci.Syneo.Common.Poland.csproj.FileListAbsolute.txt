@@ -1,0 +1,13 @@
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.Common.Poland\bin\Debug\Toci.Syneo.Common.Poland.dll
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.Common.Poland\bin\Debug\Toci.Syneo.Common.Poland.pdb
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.Common.Poland\bin\Debug\Toci.Syneo.Common.Poland.Interfaces.dll
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.Common.Poland\bin\Debug\Toci.Syneo.DesignPatterns.Warsaw.dll
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.Common.Poland\bin\Debug\Toci.Syneo.DesignPatterns.Warsaw.Interfaces.dll
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.Common.Poland\bin\Debug\Toci.Syneo.Common.Poland.Interfaces.pdb
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.Common.Poland\bin\Debug\Toci.Syneo.DesignPatterns.Warsaw.Interfaces.pdb
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.Common.Poland\bin\Debug\Toci.Syneo.DesignPatterns.Warsaw.pdb
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.Common.Poland\obj\Debug\Toci.Syneo.Common.Poland.csprojAssemblyReference.cache
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.Common.Poland\obj\Debug\Toci.Syneo.Common.Poland.csproj.CoreCompileInputs.cache
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.Common.Poland\obj\Debug\Toci.Syneo.Common.Poland.csproj.CopyComplete
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.Common.Poland\obj\Debug\Toci.Syneo.Common.Poland.dll
+C:\Users\bzapa\source\repos\toci_syneo_sod\Toci.Syneo.Sod.Dal.Gatekeeper.Interfaces\Toci.Syneo.Common.Poland\obj\Debug\Toci.Syneo.Common.Poland.pdb
